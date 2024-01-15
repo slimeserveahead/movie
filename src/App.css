@@ -1,38 +1,555 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow&family=Prociono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+/* font-family: 'Prociono', serif; */
+/* font-family: 'Radio Canada', sans-serif; */
+/* font-family: 'Poppins', sans-serif; */
+body {
+  font-family: 'Pragati Narrow', sans-serif;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
   text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+  background-color: #FF7426;
+  display: flex;
+  justify-content: flex-end;
+  height: 5vw;
+  align-items: center;
+  padding: 0 4vw;
+  gap: 3vw;
+  font-size: 1.2vw;
+  margin-bottom: 2vw;
+}
+.spacer {
+  height: 1000px;
+}
+.headerButtons {
+  display: flex;
+  gap: 6vw;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.headerButton {
+  opacity: 0.5;
+  transition: all 0.2s;
+}
+.headerButton:hover {
+  color: white;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.headerRight {
+  display: flex;
+  gap: 1vw;
+  font-family: 'Prociono', serif;
+  color: white;
+  align-items: center;
+}
+.loginButton, .registerButton {
+  cursor: pointer;
+}
+
+.headerLeft input {
+  background-color: rgb(0, 0, 0, 0.34);
+  height: 1.75vw;
+  width: 20vw;
+  border-radius: 2vw;
+  padding-right: 2vw;
+  color: #A8A8A8;
+  padding-left: 2vw;
+  text-align: end;
+  border: 0.5px solid #EAEAEA;
+}
+.headerLeft input::placeholder {
+  color: #A8A8A8;
+  font-size: 1vw;
+}
+.main {
+  position: relative;
+  padding: 2vw 3vw 0 3vw;
+}
+.mainBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: red;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(180deg, #FF6001 0%, rgba(255, 119, 38, 0.00) 100%);
+}
+.bannerContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2vw;
+}
+.movieImage {
+  width: 100%;
+  vertical-align: middle;
+  border-radius: 2vw;
+}
+.bannerGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+  border-radius: 2vw;
+}
+.bannerGradient {
+  background: linear-gradient(90deg, #A95222 0%, rgba(255, 236, 229, 0.00) 50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.bannerGradient, .bannerInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.bannerInfo {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1vw;
+  padding-left: 2vw;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.starIcon {
+  width: 1.2vw !important; 
+  height: auto !important;
+  margin-right: 0.25vw;
+}
+.starIcon:nth-child(5) {
+  margin-right: 1vw;
+}
+.starIconActive {
+  filter: invert(14%) sepia(71%) saturate(3136%) hue-rotate(-29deg) brightness(89%) contrast(111%);
+}
+.movieDescription {
+  color: white;
+  width: 36vw;
+  font-size: 1.2vw;
+  text-align: left;
+}
+.movieRating {
+  color: white;
+  font-size: 1.2vw;
+  display: flex;
+  align-items: center;
+}
+.bannerButtonsContainer {
+  display: flex;
+  align-items: center;
+}
+
+.playNowButton {
+  background-color: #FF8A00;
+  height: 3vw;
+  width: 12vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vw;
+  border-radius: 0.75vw;
+  font-size: 1.2vw;
+}
+.plusButton {
+  height: 3vw;
+  width: 3vw;
+  background-color: #FF8A00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.75vw;
+}
+.plusButton img{
+  width: 1.7vw !important;
+  height: auto;
+}
+.movieTitle {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5vw;
+}
+.featuredMovies {
+  margin-bottom: 2vw;
+}
+.featuredMoviesContainer {
+  display: flex;
+  gap: 2vw;
+}
+
+.featuredMovieCard {
+  width: 100%;
+  position: relative;
+  border-radius: 1vw;
+  overflow: hidden;
+}
+
+.featuredMovieCard img {
+  width: 100%;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+
+.featuredMovieCardOverlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(95, 95, 91, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+.featuredMovieCardOverlay img {
+  width: 4vw;
+  margin-top: 4vw;
+}
+.featuredMoviePlayButton {
+  background-color: #FF8A00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3vw;
+  width: 10vw;
+  margin-top: 4vw;
+  border-radius: 0.5vw;
+  border: 1px solid #FF8A00;
+  transition: all 0.2s;
+  font-size: 1.2vw;
+}
+.featuredMoviePlayButton:hover {
+  box-shadow: 0px 0px 4.3px 2px #D37815;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.scaleLarger {
+  transform: scale(1.2);
+}
+.latestMovies {
+  margin-bottom: 2vw;
+}
+.featuredMoviesTitle, .latestMoviesTitle, .upcomingMoviesTitle, .premiumMoviesTitle {
+  background: linear-gradient(180deg, #000 0%, #FF7926 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5vw;
+  text-transform: uppercase ;
+}
+.latestMoviesTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.latestMoviesContainer {
+  display: flex;
+  gap: 2vw;
+}
+.latestMovieCard {
+  background-color: red;
+  width: 100%;
+  border-radius: 0.75vw;
+  overflow: hidden;
+}
+.latestMovieCard img {
+  width: 100%;
+  vertical-align: middle;
+}
+.moreLatestMovies {
+  display: flex;
+  align-items: center;
+}
+.moreLatestMovies img {
+  margin-left: 1vw;
+}
+.lower {
+  display: flex;
+  position: relative;
+}
+.upcomingMovies {
+  padding: 2vw;
+  width: calc(20% - 4vw);
+  position: sticky;
+  top: 0;
+  height: fit-content;
+  padding-bottom: 0;
+}
+.upcomingMoviesTitle {
+  margin-bottom: 1vw;
+}
+.premiumMovies {
+  width: calc(80% - 2vw);
+  padding-right: 2vw;
+  margin-bottom: 4vw;
+}
+.upcomingMovieCard {
+  display: flex;
+  margin-bottom: 1vw;
+}
+.upcomingMovieCard:last-child {
+ margin-bottom: 0;
+}
+.upcomingMovieImg {
+  border-radius: 0.75vw;
+  overflow: hidden;
+  width: 4vw;
+  margin-right: 1vw;
+}
+.upcomingMovieImg img {
+  width: 100%;
+  vertical-align: middle;
+}
+.upcomingMovieTitle {
+  font-size: 1.2vw;
+  font-family: 'Radio Canada', sans-serif;
+  margin-bottom: 0.25vw;
+}
+.upcomingMovieDescription {
+  font-size: 1vw;
+  line-height: 1vw;
+  margin-bottom: 0.25vw;
+  color: #A5A3A3;
+}
+.starIconUpcoming {
+  width: 0.9vw;
+  margin-right: 0.2vw;
+}
+.upcomingMovieRating {
+  display: flex;
+}
+.upcomingMoviesTitle {
+  font-size: 1.2vw;
+  display: flex;
+  align-items: center;
+}
+.upcomingMoviesTitle img {
+  margin-left: 0.5vw;
+}
+.premiumMovieContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: auto; 
+  gap: 2vw;
+}
+.premiumMovieCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.premiumMovieImg {
+  width: 100%;
+  border-radius: 0.75vw;
+  margin-bottom: 0.5vw;
+}
+.starIconPremiumContainer {
+  display: flex;
+  align-items: center;
+  font-size: 1vw;
+  line-height: 1vw;
+}
+.starIconPremium {
+  width: 1vw;
+}
+.premiumMovieTitle {
+  font-size: 1vw;
+}
+.starIconPremium:nth-child(5) {
+  margin-right: 0.5vw;
+}
+.premiumMoviesTitle {
+  font-family: 'Radio Canada', sans-serif;
+  margin-top: 1vw;
+}
+.footerUpper {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  justify-content: center;
+}
+.footer {
+  margin-bottom: 2vw;
+}
+.footerUpper img {
+  height: 2.5vw;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.footerUpper img:hover {
+  transform: scale(1.1);
+}
+.footerLower {
+  margin-top: 2vw;
+  color: #636363;
+  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  gap: 9vw;
+}
+.footerLink {
+  cursor: pointer;
+  transition: all 0.4s;
+  text-decoration: none;
+}
+.footerLink:hover {
+  text-decoration: underline;
+}
+.loginPopup {
+  position: fixed;
+  height: 0;
+  width: 100%;
+  z-index: 99;
+  transition: height 0.4s;
+  overflow: hidden;
+}
+.loginContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.backgroundOverlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(217, 217, 217, 0.5);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.popUp {
+  background-color: white;
+  height: 20vw;
+  width: 30vw;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2vw;
+  background-image: url("./images/pop\ up\ background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.popUpTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin-bottom: 0.2vw;
+  font-size: 1.2vw;
+}
+.popUpSubtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #8F3E0D;
+  text-decoration: underline;
+  margin-bottom: 1vw;
+  font-size: 1vw;
+}
+.popupInput {
+  background-color: #FDF0E9;
+  width: calc(80% - 2vw);
+  height: 2vw;
+  border-radius: 0.65vw;
+  border: none;
+  padding: 0 1vw;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin-bottom: 0.5vw;
+  font-size: 0.75vw;
+}
+.popupInput:focus {
+  outline: none;
+}
+.popupInput::placeholder {
+  color: rgb(0, 0, 0, 0.5); 
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.75vw;
+}
+.popupButton {
+  background-color: #FF853C;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5vw;
+  height: 2vw;
+  width: 100%;
+  font-size: 1vw;
+  margin-bottom: 0.5vw;
+  cursor: pointer;
 }
+.lowerPopup {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.forgotPassword {
+  align-self: flex-end;
+  color: #100DBD;
+  text-decoration: underline;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  cursor: pointer;
+  font-size: 0.75vw;
+  margin-bottom: 1vw;
+}
+.popupSocials {
+  display: flex;
+  gap: 1vw;
+  height: 2vw;
+  justify-content: center;
+}
+.popupSocials img {
+  height: 100%;
+  cursor: pointer;;
+}
+.height100 {
+  height: 100%;
+}
+.opacityOne {
+  opacity: 1;
+}
+.swiper-backface-hidden .swiper-slide {
+  background: transparent !important;
 }
